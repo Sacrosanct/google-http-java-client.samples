@@ -44,9 +44,6 @@ public class DailyMotionSample {
     @Key
     public List<Video> list;
 
-    @Key
-    public int limit;
-
     @Key("has_more")
     public boolean hasMore;
   }
@@ -89,13 +86,13 @@ public class DailyMotionSample {
     url.fields = "id,tags,title,url";
     HttpRequest request = requestFactory.buildGetRequest(url);
     VideoFeed videoFeed = request.execute().parseAs(VideoFeed.class);
-    if (videoFeed.list == null) {
+    if (videoFeed.list.isEmpty()) {
       System.out.println("No videos found.");
     } else {
       if (videoFeed.hasMore) {
         System.out.print("First ");
       }
-      System.out.println(videoFeed.limit + " videos found:");
+      System.out.println(videoFeed.list.size() + " videos found:");
       for (Video video : videoFeed.list) {
         System.out.println();
         System.out.println("-----------------------------------------------");
