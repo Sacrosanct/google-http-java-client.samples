@@ -110,7 +110,7 @@ public class DailyMotionSample {
         run();
         return;
       } catch (HttpResponseException e) {
-        System.err.println(e.getResponse().parseAsString());
+        System.err.println(e.getMessage());
       }
     } catch (Throwable t) {
       t.printStackTrace();
