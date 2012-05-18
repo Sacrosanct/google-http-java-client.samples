@@ -30,19 +30,6 @@
     <url>http://code.google.com/p/google-http-java-client/source/browse/?repo=samples</url>
   </scm>
 
-  <repositories>
-    <repository>
-      <id>googleapis</id>
-      <url>http://mavenrepo.google-http-java-client.googlecode.com/hg/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-  </repositories>
-
   <developers>
     <developer>
       <id>yanivi</id>
