@@ -22,9 +22,9 @@ import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.HttpResponseException;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.http.json.JsonHttpParser;
 import com.google.api.client.json.GenericJson;
 import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.JsonObjectParser;
 import com.google.api.client.json.jackson.JacksonFactory;
 import com.google.api.client.util.Key;
 
@@ -46,9 +46,9 @@ import java.util.List;
  * @author Yaniv Inbar
  */
 public class GooglePlusSample {
-  // private static final String API_KEY =
-  // "[[Enter API Key from https://code.google.com/apis/console/?api=plus]]";
-  private static final String API_KEY = "AIzaSyCCAwEgNJz-R4CRTmy8aFb8U0bjwkOoex4";
+
+  private static final String API_KEY =
+      "Enter API Key from https://code.google.com/apis/console/?api=plus into API_KEY";
 
   private static final String USER_ID = "116899029375914044550";
   private static final int MAX_RESULTS = 3;
@@ -146,8 +146,8 @@ public class GooglePlusSample {
 
     /** Lists the public activities for the given Google+ user ID. */
     public static PlusUrl listPublicActivities(String userId) {
-      return new PlusUrl("https://www.googleapis.com/plus/v1/people/" + userId
-          + "/activities/public");
+      return new PlusUrl(
+          "https://www.googleapis.com/plus/v1/people/" + userId + "/activities/public");
     }
   }
 
@@ -176,7 +176,7 @@ public class GooglePlusSample {
         HTTP_TRANSPORT.createRequestFactory(new HttpRequestInitializer() {
             @Override
           public void initialize(HttpRequest request) {
-            request.addParser(new JsonHttpParser(JSON_FACTORY));
+            request.setParser(new JsonObjectParser(JSON_FACTORY));
           }
         });
     PlusUrl url = PlusUrl.listPublicActivities(USER_ID).setMaxResults(MAX_RESULTS);
@@ -186,8 +186,8 @@ public class GooglePlusSample {
   }
 
   public static void main(String[] args) {
-    if (API_KEY.startsWith("[[")) {
-      System.err.println("Must enter API_KEY from https://code.google.com/apis/console/?api=plus");
+    if (API_KEY.startsWith("Enter ")) {
+      System.err.println(API_KEY);
       System.exit(1);
     }
     try {
