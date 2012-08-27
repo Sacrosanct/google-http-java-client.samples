@@ -25,7 +25,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.GenericJson;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.JsonObjectParser;
-import com.google.api.client.json.jackson.JacksonFactory;
+import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.Key;
 
 import java.io.IOException;
@@ -46,9 +46,6 @@ import java.util.List;
  * @author Yaniv Inbar
  */
 public class GooglePlusSample {
-
-  private static final String API_KEY =
-      "Enter API Key from https://code.google.com/apis/console/?api=plus into API_KEY";
 
   private static final String USER_ID = "116899029375914044550";
   private static final int MAX_RESULTS = 3;
@@ -129,7 +126,7 @@ public class GooglePlusSample {
 
     @SuppressWarnings("unused")
     @Key
-    private final String key = API_KEY;
+    private final String key = ClientCredentials.API_KEY;
 
     /** Maximum number of results. */
     @Key
@@ -186,10 +183,7 @@ public class GooglePlusSample {
   }
 
   public static void main(String[] args) {
-    if (API_KEY.startsWith("Enter ")) {
-      System.err.println(API_KEY);
-      System.exit(1);
-    }
+    ClientCredentials.errorIfNotSpecified();
     try {
       try {
         run();
