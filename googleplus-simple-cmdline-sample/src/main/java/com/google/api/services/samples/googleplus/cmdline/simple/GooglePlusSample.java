@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2011 Google Inc.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software distributed under the License
  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
  * or implied. See the License for the specific language governing permissions and limitations under
@@ -25,7 +25,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.GenericJson;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.JsonObjectParser;
-import com.google.api.client.json.jackson.JacksonFactory;
+import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.Key;
 
 import java.io.IOException;
@@ -35,14 +35,14 @@ import java.util.List;
  * Simple example that demonstrates how to use <a
  * href="code.google.com/p/google-http-java-client/">Google HTTP Client Library for Java</a> with
  * the <a href="https://developers.google.com/+/api/">Google+ API</a>.
- * 
+ *
  * <p>
  * Note that in the case of the Google+ API, there is a much better custom library built on top of
  * this HTTP library that is much easier to use and hides most of these details for you. See <a
  * href="http://code.google.com/p/google-api-java-client/wiki/APIs#Google+_API">Google+ API for
  * Java</a>.
  * </p>
- * 
+ *
  * @author Yaniv Inbar
  */
 public class GooglePlusSample {
@@ -146,8 +146,8 @@ public class GooglePlusSample {
 
     /** Lists the public activities for the given Google+ user ID. */
     public static PlusUrl listPublicActivities(String userId) {
-      return new PlusUrl(
-          "https://www.googleapis.com/plus/v1/people/" + userId + "/activities/public");
+      return new PlusUrl("https://www.googleapis.com/plus/v1/people/" + userId
+          + "/activities/public");
     }
   }
 
