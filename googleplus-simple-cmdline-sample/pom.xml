@@ -112,15 +112,16 @@
     <dependency>
       <groupId>com.google.http-client</groupId>
       <artifactId>google-http-client</artifactId>
-      <version>1.14.1-beta</version>
+      <version>${project.http.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.http-client</groupId>
       <artifactId>google-http-client-jackson2</artifactId>
-      <version>1.14.1-beta</version>
+      <version>${project.http.version}</version>
     </dependency>
   </dependencies>
   <properties>
+    <project.http.version>1.14.1-beta</project.http.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
