@@ -146,8 +146,8 @@ public class GooglePlusSample {
 
     /** Lists the public activities for the given Google+ user ID. */
     public static PlusUrl listPublicActivities(String userId) {
-      return new PlusUrl("https://www.googleapis.com/plus/v1/people/" + userId
-          + "/activities/public");
+      return new PlusUrl(
+          "https://www.googleapis.com/plus/v1/people/" + userId + "/activities/public");
     }
   }
 
